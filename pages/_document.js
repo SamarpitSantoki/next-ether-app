@@ -2,6 +2,9 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import Footer from '../components/footer'
 
 class MyDocument extends Document {
+  constructor(props){
+    super(props)
+  }
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps }
@@ -20,7 +23,6 @@ class MyDocument extends Document {
           </main>
           <Footer />
           <NextScript />
-
         </body>
       </Html>
     )
