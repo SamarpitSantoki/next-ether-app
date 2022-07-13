@@ -4,11 +4,11 @@ async function main() {
     await keyboardsContract.deployed();
   
     console.log("The keyboards contract is deployed!", keyboardsContract.address)
-  
+
+    const keyboardTxn1 = await keyboardsContract.create(0, true, "sepia");
+    await keyboardTxn1.wait(); 
     const keyboards = await keyboardsContract.getKeyboards();
     console.log("We got the keyboards!", keyboards);
-    const keyboardTxn1 = await keyboardsContract.create("A really great keyboard!");
-    await keyboardTxn1.wait();  
   }
     
   // We recommend this pattern to be able to use async/await everywhere
